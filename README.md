@@ -45,6 +45,7 @@ The two notebooks located in the folder [notebooks](notebooks) permit to produce
 * [1.space_glyphs.ipynb](notebooks/1.space_glyphs.ipynb) imports pairs of scripts to visualize them with multidimensional scaling analysis.
 * [2.clustering_scripts.ipynb](notebooks/2.clustering_scripts.ipynb) imports of the distances between scripts to perform a clustering of the writing systems.
 
+To get the fitted Siamese Neural Network, the weights have to be downloaded from https://drive.google.com/file/d/1A1nXBWSTOWQbitYCaDXzwZX4FJK55jMy/view?usp=sharing and extracted in the folder [models](models).
 
 ## Authors
 * **Claire Roman**

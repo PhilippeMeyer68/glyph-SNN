@@ -8,9 +8,10 @@ Date: 02/2024
 """
 
 # packages
-import model
 import os
 from keras.optimizers import SGD
+
+import model
 
 
 def main():

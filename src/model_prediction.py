@@ -11,10 +11,10 @@ Date: 02/2024
 # packages
 import itertools
 import numpy as np
-import model
 import os
 import pickle
 import tensorflow as tf
+from keras import backend as K
 
 
 def main():
