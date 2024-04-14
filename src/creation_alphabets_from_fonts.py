@@ -3,9 +3,9 @@
 This script permits to create alphabets from font files ttf and to export them 
 as numpy arrays.
 
-Author: Philippe Meyer
+Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 02/2024
+Date: 03/2024
 """
 
 # packages
@@ -21,7 +21,7 @@ import dictionary_alphabets
 
 
 def plot_an_alphabet(dict_alphabets, lang, xsize, ysize, yoffset, fontsize):
-    """Plot the alphabet lang."""
+    """Plots the alphabet lang."""
 
     range_alph = dict_alphabets[lang]
     font = "data/raw/fonts/" + range_alph[1] + ".ttf"
@@ -48,7 +48,7 @@ def plot_an_alphabet(dict_alphabets, lang, xsize, ysize, yoffset, fontsize):
 def create_alphabet(
     dict_alphabets, lang, xsize, ysize, yoffset, fontsize, image_unsupported
 ):
-    """Create the alphabet lang and export it as a numpy array."""
+    """Creates the alphabet lang and export it as a numpy array."""
 
     range_alph = dict_alphabets[lang]
     font = "data/raw/fonts/" + range_alph[1] + ".ttf"
@@ -92,14 +92,15 @@ def main():
     fontsize = 51  # Size of the glyphs in the images.
 
     # We give some statistics and we test an alphabet.
-    print("There are", len(dict_alphabets), "alphabets in our database.")
+    print("There are", len(dict_alphabets), "alphabets in our database and", sum([len(dict_alphabets[lang][0]) for lang in dict_alphabets.keys()]), "glyphs.")
+    
     for lang in dict_alphabets:
         print(lang, ":", len(dict_alphabets[lang][0]))
     lang = "Meroitic Hieroglyphs"
     print("We test the load of the alphabet", lang)
     plot_an_alphabet(dict_alphabets, lang, xsize, ysize, yoffset, fontsize)
 
-    # Creation of the image "unsupported" to test if the glyphs are well loaded
+    # Creation of the tofu image "unsupported" to test if the glyphs are well loaded
     letter = chr(1)
     image_unsupported = Image.new("RGB", (xsize, ysize), (256, 256, 256))
     draw = ImageDraw.Draw(image_unsupported)

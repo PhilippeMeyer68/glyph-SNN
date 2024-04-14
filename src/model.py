@@ -2,9 +2,9 @@
 """
 This script defines the Siamese Neural Network model.
 
-Author: Philippe Meyer
+Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 02/2024
+Date: 03/2024
 """
 
 # packages
@@ -29,7 +29,7 @@ class Siamese_Loader:
         self.info = {}
 
         def loadimgs(path, n=0):
-            """Load the images."""
+            """To load the images."""
 
             X = []
             y = []
@@ -65,7 +65,7 @@ class Siamese_Loader:
         self.categories["train"] = c
 
     def get_batch(self, batch_size, s="train"):
-        """Create batch of n pairs, half same class, half different class."""
+        """Creates batch of n pairs, half same class, half different class."""
 
         X = self.data[s]
         n_classes, n_examples, w, h = X.shape
@@ -95,14 +95,14 @@ class Siamese_Loader:
 
 
 def W_init(shape, name=None, dtype=None):
-    """Initialize weights."""
+    """Initializes weights."""
 
     values = rng.normal(loc=0, scale=0.01, size=shape)
     return K.variable(values, name=name)
 
 
 def b_init(shape, name=None, dtype=None):
-    """Initialize bias."""
+    """Initializes bias."""
 
     values = rng.normal(loc=0.5, scale=0.01, size=shape)
     return K.variable(values, name=name)

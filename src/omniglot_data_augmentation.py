@@ -3,9 +3,9 @@
 In this script we use rotations, shears, zooms and shits to augment the
 Omniglot dataset that will be use to train the Siamese Neural Network model.
 
-Author: Philippe Meyer
+Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 02/2024
+Date: 03/2024
 """
 
 
@@ -20,8 +20,8 @@ from scipy import ndimage
 from skimage import transform as tf
 
 
-def paddedzoom(img, zoomfactor=0.8):
-    """Return a zoomed image."""
+def padded_zoom(img, zoomfactor=0.8):
+    """Returns a zoomed image."""
 
     h, w = img.shape
     M = cv2.getRotationMatrix2D((w / 2, h / 2), 0, zoomfactor)
@@ -30,7 +30,7 @@ def paddedzoom(img, zoomfactor=0.8):
 
 
 def image_aug(image, rotation_range, shear_range, zoom_range, shift_range):
-    """Return an image randomly rotated, sheared, zoomed and/or shifted"""
+    """Returns an image randomly rotated, sheared, zoomed and/or shifted"""
 
     image2 = image
 
@@ -49,7 +49,7 @@ def image_aug(image, rotation_range, shear_range, zoom_range, shift_range):
     if random.random() > 0.5:  # zoom
         zoom_val = random.uniform(zoom_range[0], zoom_range[1])
         # print("zoom", zoom_val)
-        image2 = paddedzoom(image2, zoom_val)
+        image2 = padded_zoom(image2, zoom_val)
 
     if random.random() > 0.5:  # shift
         shift_val = random.uniform(shift_range[0], shift_range[1])
@@ -60,7 +60,7 @@ def image_aug(image, rotation_range, shear_range, zoom_range, shift_range):
 
 
 def to_black_and_white(image):
-    """Return the input image as a binary black and white image."""
+    """Returns the input image as a binary black and white image."""
     for i in range(len(image)):
         for j in range(len(image[0])):
             if image[i][j] > 127.5:
@@ -80,7 +80,7 @@ def main():
     zoom_range = [0.8, 1.2]
     shift_range = [-2, 2]
 
-    # Apply 8 transformation per glyph to the omniglot invented dataset.
+    # We apply 8 transformation per glyph to the omniglot invented dataset.
     source_dir = "data/raw/omniglot_invented/images_background"
     destination_dir = "data/processed/omniglot_invented_augmented/images_background"
     shutil.copytree(source_dir, destination_dir)

@@ -2,9 +2,9 @@
 """
 In this script we train the Siamese Neural Network model and save it for reuse.
 
-Author: Philippe Meyer
+Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 02/2024
+Date: 03/2024
 """
 
 # packages
@@ -31,7 +31,7 @@ def main():
     # We train the Siamese Neural Network model.
     batch_size = 16
     n_iter = 1350000
-    for i in range(1, 5):
+    for i in range(1, n_iter):
         (inputs, targets) = loader.get_batch(batch_size)
         loss = siamese_net.train_on_batch(inputs, targets)
         print(i, loss)

@@ -3,9 +3,9 @@
 In this script we predict the distances between alphabets using the Siamese
 Neural Network model.
 
-Author: Philippe Meyer
+Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 02/2024
+Date: 03/2024
 """
 
 # packages
