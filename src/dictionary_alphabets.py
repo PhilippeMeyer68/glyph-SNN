@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-This script stores the alphabets, the unicodes of the capital letters and the 
-names of the associated font files.
+This script stores the alphabets, the unicodes of the capital letters and the names of
+the associated font files.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
+
 
 # Dictionary of the alphabets, associated unicodes and font files.
 dict_alphabets = {

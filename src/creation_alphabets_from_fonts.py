@@ -1,27 +1,43 @@
 # -*- coding: utf-8 -*-
 """
-This script permits to create alphabets from font files ttf and to export them 
-as numpy arrays.
+This script permits to create alphabets from ttf font files and to export them as numpy
+arrays.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
 
-# packages
+
+import os
+
 import cv2
 import numpy as np
-import os
 from matplotlib import pyplot as plt
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
+from PIL import Image, ImageDraw, ImageFont
 
 import dictionary_alphabets
 
 
 def plot_an_alphabet(dict_alphabets, lang, xsize, ysize, yoffset, fontsize):
-    """Plots the alphabet lang."""
+    """
+    Plot the alphabet of a specified language.
+
+    Parameters
+    ----------
+    dict_alphabets : dict
+        A dictionary containing alphabets for different languages.
+    lang : str
+        The name of the alphabet to plot.
+    xsize : int
+        The width of the plotted image.
+    ysize : int
+        The height of the plotted image.
+    yoffset : int
+        The vertical offset for the position of the letter within the image.
+    fontsize : int
+        The font size of the plotted letter.
+    """
 
     range_alph = dict_alphabets[lang]
     font = "data/raw/fonts/" + range_alph[1] + ".ttf"
@@ -48,7 +64,31 @@ def plot_an_alphabet(dict_alphabets, lang, xsize, ysize, yoffset, fontsize):
 def create_alphabet(
     dict_alphabets, lang, xsize, ysize, yoffset, fontsize, image_unsupported
 ):
-    """Creates the alphabet lang and export it as a numpy array."""
+    """
+    Create the alphabet of a specified language and exports it as a numpy array.
+
+    Parameters
+    ----------
+    dict_alphabets : dict
+        A dictionary containing alphabets for different languages.
+    lang : str
+        The language of the alphabet to create.
+    xsize : int
+        The width of the letters in the alphabet.
+    ysize : int
+        The height of the letters in the alphabet.
+    yoffset : int
+        The vertical offset for the position of the letter within each image.
+    fontsize : int
+        The font size of the letters in the alphabet.
+    image_unsupported : numpy.ndarray
+        A reference image used to check if a generated glyph is unsupported.
+
+    Returns
+    -------
+    numpy.ndarray
+        An array containing the alphabet letters represented as numpy arrays.
+    """
 
     range_alph = dict_alphabets[lang]
     font = "data/raw/fonts/" + range_alph[1] + ".ttf"
@@ -75,11 +115,17 @@ def create_alphabet(
         else:
             pass
             print("Problem with a glyph.")
-
     return np.array(X_glyphs)
 
 
 def main():
+    """
+    This function sets the current working directory, imports the dictionary of
+    alphabets and unicode ranges, performs some statistics, tests loading an alphabet,
+    creates a tofu image to test glyph loading and exports all the alphabets as numpy
+    arrays.
+    """
+
     # We set the current working directory to the project folder.
     os.chdir(os.path.dirname(os.path.dirname(__file__)))
 
@@ -92,8 +138,14 @@ def main():
     fontsize = 51  # Size of the glyphs in the images.
 
     # We give some statistics and we test an alphabet.
-    print("There are", len(dict_alphabets), "alphabets in our database and", sum([len(dict_alphabets[lang][0]) for lang in dict_alphabets.keys()]), "glyphs.")
-    
+    print(
+        "There are",
+        len(dict_alphabets),
+        "alphabets in our database and",
+        sum([len(dict_alphabets[lang][0]) for lang in dict_alphabets.keys()]),
+        "glyphs.",
+    )
+
     for lang in dict_alphabets:
         print(lang, ":", len(dict_alphabets[lang][0]))
     lang = "Meroitic Hieroglyphs"

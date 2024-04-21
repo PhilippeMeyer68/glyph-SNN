@@ -1,23 +1,31 @@
 # -*- coding: utf-8 -*-
 """
-In this script we predict the distances between alphabets using the Siamese
-Neural Network model.
+In this script we predict the distances between alphabets using the Siamese Neural
+Network model.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
 
-# packages
+
 import itertools
-import numpy as np
 import os
 import pickle
+
+import numpy as np
 import tensorflow as tf
 from keras import backend as K
 
 
 def main():
+    """
+    This function loads a trained Siamese network model, computes pairwise distances
+    between alphabets, and exports the distances as dictionaries. It then computes
+    pairwise distances between and inside specific alphabets and exports them as
+    dictionaries.
+    """
+
     # We set the current working directory to the project folder.
     os.chdir(os.path.dirname(os.path.dirname(__file__)))
 

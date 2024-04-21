@@ -1,7 +1,7 @@
 # Analysis of Glyph and Writing System Similarities using Siamese Neural Networks
 
 ## About
-This repository includes the code and the data associated to the preprint **Analysis of Glyph and Writing System Similarities using Siamese Neural Networks**. 
+This repository includes the code and the data associated to the paper **Analysis of Glyph and Writing System Similarities using Siamese Neural Networks** that has been accepted at the [Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA)](https://circse.github.io/LT4HALA/2024/) which is co-located with the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference in Torino, Italy on Saturday, May 25 2024.
 
 Here is the abstract of the article:
 *In this paper we use siamese neural networks to compare glyphs and writing systems. These deep learning models define distance-like functions and are used to explore and visualize the space of scripts by performing multidimensional scaling and clustering analyses. From 51 historical European, Mediterranean and Middle Eastern alphabets, we use a Ward-linkage hierarchical clustering and obtain 10 clusters of scripts including three isolated writing systems. To collect the glyph database we use the Noto family fonts that encode in a standard form the Unicode character repertoire. This approach has the potential to reveal connections among scripts and civilizations and to help the deciphering of ancient scripts.*

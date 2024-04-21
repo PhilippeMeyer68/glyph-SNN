@@ -1,36 +1,69 @@
 # -*- coding: utf-8 -*-
 """
-In this script we use rotations, shears, zooms and shits to augment the
-Omniglot dataset that will be use to train the Siamese Neural Network model.
+In this script we use rotations, shears, zooms and shits to augment the Omniglot
+dataset that will be use to train the Siamese Neural Network model.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
 
 
-# packages
-import cv2
-import numpy as np
 import os
 import random
-import scipy
 import shutil
+
+import cv2
+import numpy as np
+import scipy
 from scipy import ndimage
 from skimage import transform as tf
 
 
 def padded_zoom(img, zoomfactor=0.8):
-    """Returns a zoomed image."""
+    """
+    Returns a zoomed image.
+
+    Parameters
+    ----------
+    img : numpy.ndarray
+        Input image to be zoomed.
+    zoomfactor : float, optional
+        Zoom factor for the image (default is 0.8).
+
+    Returns
+    -------
+    numpy.ndarray
+        Zoomed image.
+    """
 
     h, w = img.shape
     M = cv2.getRotationMatrix2D((w / 2, h / 2), 0, zoomfactor)
-
     return cv2.warpAffine(img, M, img.shape[::-1], borderValue=255)
 
 
 def image_aug(image, rotation_range, shear_range, zoom_range, shift_range):
-    """Returns an image randomly rotated, sheared, zoomed and/or shifted"""
+    """
+    Returns an image with random rotation, shear, zoom, and/or shift applied.
+
+    Parameters
+    ----------
+    image : numpy.ndarray
+        Input image to be augmented.
+    rotation_range : tuple
+        Range of rotation angles in degrees, e.g., (min_angle, max_angle).
+    shear_range : tuple
+        Range of shear angles in degrees, e.g., (min_angle, max_angle).
+    zoom_range : tuple
+        Range of zoom factors, e.g., (min_factor, max_factor).
+    shift_range : tuple
+        Range of shift values, e.g., (min_shift, max_shift).
+
+    Returns
+    -------
+    numpy.ndarray
+        Augmented image.
+    """
 
     image2 = image
 
@@ -55,12 +88,24 @@ def image_aug(image, rotation_range, shear_range, zoom_range, shift_range):
         shift_val = random.uniform(shift_range[0], shift_range[1])
         # print("shift", shift_val)
         image2 = scipy.ndimage.shift(image2, shift_val, cval=255)
-
     return image2
 
 
 def to_black_and_white(image):
-    """Returns the input image as a binary black and white image."""
+    """
+    Converts the input image to a binary black and white image.
+
+    Parameters
+    ----------
+    image : numpy.ndarray
+        Input image to be converted.
+
+    Returns
+    -------
+    numpy.ndarray
+        Binary black and white image.
+    """
+
     for i in range(len(image)):
         for j in range(len(image[0])):
             if image[i][j] > 127.5:
@@ -71,6 +116,12 @@ def to_black_and_white(image):
 
 
 def main():
+    """
+    This function sets the current working directory to the project folder, defines
+    ranges for image transformations, applies transformations to the Omniglot invented
+    dataset and saves the augmented images.
+    """
+
     # We set the current working directory to the project folder.
     os.chdir(os.path.dirname(os.path.dirname(__file__)))
 

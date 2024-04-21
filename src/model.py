@@ -4,18 +4,19 @@ This script defines the Siamese Neural Network model.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
 
-# packages
+
+import os
+
 import cv2
 import keras
 import numpy as np
 import numpy.random as rng
-import os
 import tensorflow
 from keras import backend as K
-from keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Lambda
+from keras.layers import Conv2D, Dense, Flatten, Input, Lambda, MaxPooling2D
 from keras.models import Model, Sequential
 from keras.regularizers import l2
 
@@ -24,12 +25,48 @@ class Siamese_Loader:
     """Siamese Neural Network class."""
 
     def __init__(self):
+        """
+        Initializes the object.
+
+        Attributes
+        ----------
+        data : dict
+            Dictionary to store data.
+        categories : dict
+            Dictionary to store categories.
+        info : dict
+            Dictionary to store additional information.
+
+        Methods
+        -------
+        loadimgs(path, n=0)
+            Loads images from the specified path.
+        """
+
         self.data = {}
         self.categories = {}
         self.info = {}
 
         def loadimgs(path, n=0):
-            """To load the images."""
+            """
+            Loads images from the specified path.
+
+            Parameters
+            ----------
+            path : str
+                Path to the directory containing the images.
+            n : int, optional
+                Starting index for categories (default is 0).
+
+            Returns
+            -------
+            numpy.ndarray
+                Array containing images.
+            numpy.ndarray
+                Array containing labels.
+            dict
+                Dictionary containing script information.
+            """
 
             X = []
             y = []
@@ -65,7 +102,25 @@ class Siamese_Loader:
         self.categories["train"] = c
 
     def get_batch(self, batch_size, s="train"):
-        """Creates batch of n pairs, half same class, half different class."""
+        """
+        Creates a batch of pairs, with half being from the same class and half from
+        different classes.
+
+        Parameters
+        ----------
+        batch_size : int
+            Size of the batch to create.
+        s : str, optional
+            Specifies the set from which to create the batch (default is "train").
+
+        Returns
+        -------
+        pairs : numpy.ndarray
+            Array of pairs of images, with shape (batch_size, height, width, 1).
+        targets : numpy.ndarray
+            Array of target labels, where 1 indicates the pairs are from the same class
+            and 0 indicates different classes.
+        """
 
         X = self.data[s]
         n_classes, n_examples, w, h = X.shape
@@ -95,14 +150,46 @@ class Siamese_Loader:
 
 
 def W_init(shape, name=None, dtype=None):
-    """Initializes weights."""
+    """
+    Initializes weights.
+
+    Parameters
+    ----------
+    shape : tuple
+        Shape of the weights.
+    name : str, optional
+        Name of the variable (default is None).
+    dtype : dtype, optional
+        Data type of the variable (default is None).
+
+    Returns
+    -------
+    keras.variable
+        Initialized weights.
+    """
 
     values = rng.normal(loc=0, scale=0.01, size=shape)
     return K.variable(values, name=name)
 
 
 def b_init(shape, name=None, dtype=None):
-    """Initializes bias."""
+    """
+    Initializes bias.
+
+    Parameters
+    ----------
+    shape : tuple
+        Shape of the bias.
+    name : str, optional
+        Name of the variable (default is None).
+    dtype : dtype, optional
+        Data type of the variable (default is None).
+
+    Returns
+    -------
+    keras.variable
+        Initialized bias.
+    """
 
     values = rng.normal(loc=0.5, scale=0.01, size=shape)
     return K.variable(values, name=name)

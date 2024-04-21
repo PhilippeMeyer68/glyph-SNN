@@ -4,17 +4,25 @@ In this script we train the Siamese Neural Network model and save it for reuse.
 
 Author: Claire Roman, Philippe Meyer
 Email: philippemeyer68@yahoo.fr
-Date: 03/2024
+Date: 04/2024
 """
 
-# packages
+
 import os
+
 from keras.optimizers import SGD
 
 import model
 
 
 def main():
+    """
+    This function sets the current working directory to the project folder, initializes
+    the SGD optimizer, loads the Siamese Neural Network model, compiles it, loads the
+    Siamese Neural Network class, trains the Siamese Neural Network model and saves the
+    trained model.
+    """
+
     # We set the current working directory to the project folder.
     os.chdir(os.path.dirname(os.path.dirname(__file__)))
 
