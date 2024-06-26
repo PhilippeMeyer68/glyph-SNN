@@ -8,6 +8,7 @@ Here is the abstract of the article:
 *In this paper we use siamese neural networks to compare glyphs and writing systems. These deep learning models define distance-like functions and are used to explore and visualize the space of scripts by performing multidimensional scaling and clustering analyses. From 51 historical European, Mediterranean and Middle Eastern alphabets, we use a Ward-linkage hierarchical clustering and obtain 10 clusters of scripts including three isolated writing systems. To collect the glyph database we use the Noto family fonts that encode in a standard form the Unicode character repertoire. This approach has the potential to reveal connections among scripts and civilizations and to help the deciphering of ancient scripts.*
 
 Here is the paper published in open-access: https://aclanthology.org/2024.lt4hala-1.12/
+
 Here is the associated poster presented at the conference: https://hal.science/hal-04597366/
 
 ## Citation
