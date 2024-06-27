@@ -18,21 +18,21 @@ Here is the associated poster presented at the conference: https://hal.science/h
 <table>
   <tr>
     <!-- Left Column -->
-    <td style="vertical-align: top; width: 50%;">
+    <td style="vertical-align: top; width: 70%;">
       <div style="text-align: center;">
         <img src="images/dendrogram.png" alt="dendrogram" style="width: 100%;"/>
-        <p>Dendrogram of the Ward-linkage hierarchical clustering of the 51 scripts. Color chart: red: medoid, blue: isolated script.</p>
+        <p style="font-size: 12px;"><strong>Figure:</strong> Dendrogram of the Ward-linkage hierarchical clustering of the 51 scripts. Color chart: red: medoid, blue: isolated script.</p>
       </div>
     </td>
     <!-- Right Column -->
-    <td style="vertical-align: top; width: 50%;">
+    <td style="vertical-align: top; width: 30%;">
       <div style="margin-bottom: 10px; text-align: center;">
         <img src="images/MDS_Latin_Old_Italic.png" alt="MDS-Latin-Old-Italic" style="width: 100%;"/>
-        <p>Two-dimensional scaling of the Latin and Old Italic scripts which are close scripts with a SNN-distance of 0.26.</p>
+        <p style="font-size: 12px;"><strong>Figure:</strong> Two-dimensional scaling of the Latin and Old Italic scripts which are close scripts with a SNN-distance of 0.26.</p>
       </div>
       <div style="text-align: center;">
         <img src="images/MDS_scripts.png" alt="MDS-scripts" style="width: 100%;"/>
-        <p>Two-dimensional scaling of the 51 scripts. Marker chart: clusters. Color chart: red: medoid, blue: isolated script.</p>
+        <p style="font-size: 12px;"><strong>Figure:</strong> Two-dimensional scaling of the 51 scripts. Marker chart: clusters. Color chart: red: medoid, blue: isolated script.</p>
       </div>
     </td>
   </tr>
