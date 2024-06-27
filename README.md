@@ -1,4 +1,8 @@
 
+<p align="center">
+  <img src="images/glyphs.png" width="350" title="glyph-examples">
+</p>
+
 # Analysis of Glyph and Writing System Similarities using Siamese Neural Networks
 
 ## About
@@ -77,6 +81,6 @@ To get the fitted siamese neural network, the weights have to be downloaded from
 In the paper there are only two-dimensional scaling analyses. An interactive three-dimensional scaling analysis of our scripts can be found here: 
 https://philippemeyer68.github.io/glyph.html
 
-## Author
+## Authors
 * **Claire Roman**
 * **Philippe Meyer** - *Université Paris-Saclay, INRAE, AgroParisTech, Micalis Institute, 78350, Jouy-en-Josas, France*. Email: philippemeyer68@yahoo.fr
