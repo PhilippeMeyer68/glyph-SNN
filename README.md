@@ -15,6 +15,28 @@ Here is the paper published in open-access: https://aclanthology.org/2024.lt4hal
 
 Here is the associated poster presented at the conference: https://hal.science/hal-04597366/
 
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+  <!-- Left Column -->
+  <div style="flex: 1; margin-right: 10px; text-align: center;">
+    <img src="images/dendrogram.png" alt="dendrogram" style="width: 100%;"/>
+    <p>Dendrogram of the Ward-linkage hierarchical clustering of the 51 scripts. Color chart: red: medoid, blue: isolated script.</p>
+  </div>
+
+  <!-- Right Column -->
+  <div style="flex: 2; display: flex; flex-direction: column; text-align: center;">
+    <div style="margin-bottom: 10px;">
+      <img src="images/MDS_Latin_Old_Italic.png" alt="MDS-Latin-Old-Italic" style="width: 100%;"/>
+      <p>Two-dimensional scaling of the Latin and Old Italic scripts which are close scripts with a SNN-distance of 0.26.</p>
+    </div>
+    <div>
+      <img src="images/MDS_scripts.png" alt="MDS-scripts" style="width: 100%;"/>
+      <p>Two-dimensional scaling of the 51 scripts. Marker chart: clusters. Color chart: red: medoid, blue: isolated script.</p>
+    </div>
+  </div>
+
+</div>
+
 ## Citation
 Claire Roman and Philippe Meyer. 2024. [Analysis of Glyph and Writing System Similarities Using Siamese Neural Networks](https://aclanthology.org/2024.lt4hala-1.12). In _Proceedings of the Third Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA) @ LREC-COLING-2024_, pages 98–104, Torino, Italia. ELRA and ICCL.
 
@@ -78,8 +100,7 @@ To get the fitted siamese neural network, the weights have to be downloaded from
 
 ## Bonus
 
-In the paper there are only two-dimensional scaling analyses. An interactive three-dimensional scaling analysis of our scripts can be found here: 
-https://philippemeyer68.github.io/glyph.html
+In the paper there are only two-dimensional scaling analyses. An interactive three-dimensional scaling analysis of our scripts can be found here: https://philippemeyer68.github.io/glyph.html.
 
 ## Authors
 * **Claire Roman**
