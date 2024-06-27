@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="images/glyphs.png" width=75% title="glyph-examples">
+  <img src="images/glyphs.png" width=100% title="glyph-examples">
 </p>
 
 # Analysis of Glyph and Writing System Similarities using Siamese Neural Networks
