@@ -1,9 +1,9 @@
 
+# Analysis of Glyph and Writing System Similarities using Siamese Neural Networks
+
 <p align="center">
   <img src="images/glyphs.png" width=100% title="glyph-examples">
 </p>
-
-# Analysis of Glyph and Writing System Similarities using Siamese Neural Networks
 
 ## About
 This repository includes the code and the data associated to the paper **Analysis of Glyph and Writing System Similarities using Siamese Neural Networks** presented at the [Workshop on Language Technologies for Historical and Ancient Languages (LT4HALA)](https://circse.github.io/LT4HALA/2024/) which has been co-located with the [LREC-COLING 2024](https://lrec-coling-2024.org/) conference in Torino, Italy on Saturday, May 25 2024.
